@@ -36,6 +36,7 @@ lesser.onclick = () => {
     // console.log(`${number1.textContent} ${number2.textContent}`)
     if(number1.textContent < number2.textContent)
     score++;
+    localStorage.setItem("score", JSON.stringify(score))
     console.log(score)
     generateNumber()
 }
@@ -43,13 +44,13 @@ lesser.onclick = () => {
 
 // Iteration 4: Build a timer for the game
 
-let timeInSeconds = 10;
+let time = 10;
 const timerElement = document.getElementById("timer");
 
 function updateTimer() {
-  timerElement.textContent = timeInSeconds + "s";
-  if(timeInSeconds > 0) {
-    timeInSeconds--;
+  timerElement.textContent = time;
+  if(time > 0) {
+    time--;
   } else {
     window.location.href = "gameover.html"
   }
@@ -57,4 +58,4 @@ function updateTimer() {
 
 setInterval(updateTimer, 1000);
 
-export { score }
+// export { score }
